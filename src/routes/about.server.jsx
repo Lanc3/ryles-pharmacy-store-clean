@@ -1,10 +1,10 @@
 import {Image} from '@shopify/hydrogen';
 
-import Grainne from '../assets/Grainne.jpg';
-import KatJane from '../assets/Jane_Kat.jpg';
-import Mike from '../assets/MikeRyles.jpg';
-import Team from '../assets/Team.jpg';
-import Vera from '../assets/Vera2.jpg';
+import Grainne from '../assets/Grainne.png';
+import KatJane from '../assets/Jane_Kat.png';
+import Mike from '../assets/MikeRyles.png';
+import Team from '../assets/Team.png';
+import Vera from '../assets/Vera2.png';
 import {Layout} from '../components/index.server';
 function GradientBackground() {
   return (
