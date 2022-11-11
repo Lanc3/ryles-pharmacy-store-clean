@@ -1,7 +1,7 @@
 import {Image} from '@shopify/hydrogen';
 
+import Mike from '../../public/assets/MikeRyles.png';
 import KatJane from '../assets/Logo.png';
-import Mike from '../assets/MikeRyles.png';
 import Team from '../assets/Team.png';
 import Vera from '../assets/Vera2.png';
 import {Layout} from '../components/index.server';
