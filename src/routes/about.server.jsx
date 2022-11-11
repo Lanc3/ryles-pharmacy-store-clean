@@ -1,6 +1,6 @@
 import {Image} from '@shopify/hydrogen';
 
-import Grainne from '../assets/Grainne.png';
+import Grainne from '../assets/grainne.png';
 import KatJane from '../assets/Jane_Kat.png';
 import Mike from '../assets/MikeRyles.png';
 import Team from '../assets/Team.png';
