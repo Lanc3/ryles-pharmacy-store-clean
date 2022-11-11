@@ -1,6 +1,6 @@
 import {Image} from '@shopify/hydrogen';
 
-import KatJane from '../assets/Jane_Kat.png';
+import KatJane from '../assets/Logo.png';
 import Mike from '../assets/MikeRyles.png';
 import Team from '../assets/Team.png';
 import Vera from '../assets/Vera2.png';
@@ -151,7 +151,7 @@ export default function About() {
                       ></div>
                       <figure className="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
                         <Image
-                          src={'/assets/grainne.png'}
+                          src={'/grainne.png'}
                           width="340"
                           height="343"
                           alt="title"
