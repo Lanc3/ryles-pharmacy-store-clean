@@ -1,11 +1,11 @@
 import {Image} from '@shopify/hydrogen';
 
-import Grainne from '../assets/Grainne.png';
-import KatJane from '../assets/Jane_Kat.png';
-import Mike from '../assets/MikeRyles.png';
-import Team from '../assets/Team.png';
-import Vera from '../assets/Vera2.png';
 import {Layout} from '../components/index.server';
+import Grainne from '../Grainne.png';
+import KatJane from '../Jane_Kat.png';
+import Mike from '../MikeRyles.png';
+import Team from '../Team.png';
+import Vera from '../Vera2.png';
 function GradientBackground() {
   return (
     <div className="fixed top-0 w-full h-full overflow-hidden bg-blue-wave">
