@@ -1,4 +1,3 @@
-import {Suspense} from 'react';
 import {
   gql,
   ProductOptionsProvider,
@@ -9,10 +8,8 @@ import {
   useServerAnalytics,
   useShopQuery,
 } from '@shopify/hydrogen';
+import {Suspense} from 'react';
 
-import {MEDIA_FRAGMENT} from '~/lib/fragments';
-import {getExcerpt} from '~/lib/utils';
-import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
 import {
   Heading,
   ProductDetail,
@@ -21,6 +18,9 @@ import {
   Section,
   Text,
 } from '~/components';
+import {Layout, NotFound, ProductSwimlane} from '~/components/index.server';
+import {MEDIA_FRAGMENT} from '~/lib/fragments';
+import {getExcerpt} from '~/lib/utils';
 
 export default function Product() {
   const {handle} = useRouteParams();
@@ -89,11 +89,17 @@ export default function Product() {
             <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
               <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-sm md:px-0">
                 <div className="grid gap-2">
-                  <Heading as="h1" format className="whitespace-normal">
+                  <Heading
+                    as="h1"
+                    format
+                    className="whitespace-normal text-white"
+                  >
                     {title}
                   </Heading>
                   {vendor && (
-                    <Text className={'opacity-50 font-medium'}>{vendor}</Text>
+                    <Text className={'opacity-50 font-medium text-rylesgold'}>
+                      {vendor}
+                    </Text>
                   )}
                 </div>
                 <ProductForm />
@@ -124,7 +130,9 @@ export default function Product() {
           </div>
         </Section>
         <Suspense>
-          <ProductSwimlane title="Related Products" data={id} />
+          <div className="mt-10">
+            <ProductSwimlane title="Related Products" data={id} />
+          </div>
         </Suspense>
       </ProductOptionsProvider>
     </Layout>

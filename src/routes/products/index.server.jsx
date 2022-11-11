@@ -1,10 +1,10 @@
+import {gql, Seo, useLocalization, useShopQuery} from '@shopify/hydrogen';
 import {Suspense} from 'react';
-import {useShopQuery, gql, useLocalization, Seo} from '@shopify/hydrogen';
 
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {PAGINATION_SIZE} from '~/lib/const';
-import {ProductGrid, PageHeader, Section} from '~/components';
+import {PageHeader, ProductGrid, Section} from '~/components';
 import {Layout} from '~/components/index.server';
+import {PAGINATION_SIZE} from '~/lib/const';
+import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 
 export default function AllProducts() {
   return (

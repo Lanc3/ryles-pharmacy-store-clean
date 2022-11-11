@@ -1,10 +1,10 @@
+import {Link, useNavigate} from '@shopify/hydrogen/client';
 import {useState} from 'react';
-import {useNavigate, Link} from '@shopify/hydrogen/client';
 
 import {emailValidation, passwordValidation} from '~/lib/utils';
 
-import {callLoginApi} from './AccountLoginForm.client';
 import {getInputStyleClasses} from '../../lib/styleUtils';
+import {callLoginApi} from './AccountLoginForm.client';
 
 export function AccountCreateForm() {
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ export function AccountCreateForm() {
   }
 
   return (
-    <div className="flex justify-center my-24 px-4">
+    <div className="relative flex justify-center my-24 px-4 text-white">
       <div className="max-w-md w-full">
         <h1 className="text-4xl">Create an Account.</h1>
         <form noValidate className="pt-6 pb-8 mt-4 mb-4" onSubmit={onSubmit}>
@@ -112,7 +112,7 @@ export function AccountCreateForm() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full"
+              className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full text-white"
               type="submit"
             >
               Create Account

@@ -1,5 +1,5 @@
-import {useState, useRef, useEffect, useCallback} from 'react';
-import {Link, flattenConnection} from '@shopify/hydrogen';
+import {flattenConnection, Link} from '@shopify/hydrogen';
+import {useCallback, useEffect, useRef, useState} from 'react';
 
 import {Button, Grid, ProductCard} from '~/components';
 import {getImageLoadingPriority} from '~/lib/const';
@@ -65,12 +65,12 @@ export function ProductGrid({url, collection}) {
 
   if (!haveProducts) {
     return (
-      <>
-        <p>No products found on this collection</p>
+      <div className="relative">
+        <p className="text-white">No products found on this collection</p>
         <Link to="/products">
-          <p className="underline">Browse catalog</p>
+          <p className="underline text-white">Browse catalog</p>
         </Link>
-      </>
+      </div>
     );
   }
 

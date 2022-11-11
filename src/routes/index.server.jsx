@@ -1,19 +1,19 @@
-import {Suspense} from 'react';
 import {
   CacheLong,
   gql,
   Seo,
   ShopifyAnalyticsConstants,
-  useServerAnalytics,
   useLocalization,
+  useServerAnalytics,
+  useSession,
   useShopQuery,
 } from '@shopify/hydrogen';
+import {Suspense} from 'react';
 
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {getHeroPlaceholder} from '~/lib/placeholders';
-import {FeaturedCollections, Hero} from '~/components';
-import {Layout, ProductSwimlane} from '~/components/index.server';
-
+import {Layout, ProductSwimlane} from '../components/index.server';
+import Welcome from '../components/Welcome.server';
 export default function Homepage() {
   useServerAnalytics({
     shopify: {
@@ -23,13 +23,15 @@ export default function Homepage() {
   });
 
   return (
-    <Layout>
+    <Layout hero={<GradientBackground />}>
       <Suspense>
         <SeoForHomepage />
       </Suspense>
-      <Suspense>
-        <HomepageContent />
-      </Suspense>
+      <div className="relative mb-12">
+        <Suspense>
+          <HomepageContent />
+        </Suspense>
+      </div>
     </Layout>
   );
 }
@@ -39,12 +41,12 @@ function HomepageContent() {
     language: {isoCode: languageCode},
     country: {isoCode: countryCode},
   } = useLocalization();
-
+  const {cCode = 'US'} = useSession();
   const {data} = useShopQuery({
     query: HOMEPAGE_CONTENT_QUERY,
     variables: {
       language: languageCode,
-      country: countryCode,
+      country: cCode,
     },
     preload: true,
   });
@@ -58,24 +60,22 @@ function HomepageContent() {
 
   return (
     <>
-      {primaryHero && (
-        <Hero {...primaryHero} height="full" top loading="eager" />
-      )}
+      <Welcome />
       <ProductSwimlane
         data={featuredProducts.nodes}
         title="Featured Products"
         divider="bottom"
       />
-      {secondaryHero && <Hero {...secondaryHero} />}
-      <FeaturedCollections
-        data={featuredCollections.nodes}
-        title="Collections"
-      />
-      {tertiaryHero && <Hero {...tertiaryHero} />}
     </>
   );
 }
-
+function GradientBackground() {
+  return (
+    <div className="top-0 w-full h-full overflow-hidden ">
+      <div className="absolute w-full h-full from-gray-50 z-10" />
+    </div>
+  );
+}
 function SeoForHomepage() {
   const {
     data: {
@@ -93,7 +93,7 @@ function SeoForHomepage() {
       data={{
         title: name,
         description,
-        titleTemplate: '%s · Powered by Hydrogen',
+        titleTemplate: '%s ',
       }}
     />
   );
@@ -117,7 +117,7 @@ const HOMEPAGE_CONTENT_QUERY = gql`
   ${MEDIA_FRAGMENT}
   ${PRODUCT_CARD_FRAGMENT}
   query homepage($country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
+    @inContext(country: $country, language: $language) {
     heroBanners: collections(
       first: 3
       query: "collection_type:custom"
@@ -150,7 +150,7 @@ const HOMEPAGE_CONTENT_QUERY = gql`
       }
     }
     featuredCollections: collections(
-      first: 3
+      first: 12
       query: "collection_type:smart"
       sortKey: UPDATED_AT
     ) {

@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import {Link} from '@shopify/hydrogen';
+import clsx from 'clsx';
 
 import {missingClass} from '~/lib/utils';
 
@@ -17,7 +17,7 @@ export function Button({
 
   const variants = {
     primary: `${baseButtonClasses} bg-primary text-contrast`,
-    secondary: `${baseButtonClasses} border border-primary/10 bg-contrast text-primary`,
+    secondary: `${baseButtonClasses} border border-primary/10 bg-contrast text-rylesblue`,
     inline: 'border-b border-primary/10 leading-none pb-1',
   };
 

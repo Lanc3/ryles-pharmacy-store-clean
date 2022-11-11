@@ -1,15 +1,15 @@
 import {
-  useLocalization,
-  useShopQuery,
-  Seo,
-  useServerAnalytics,
-  ShopifyAnalyticsConstants,
   gql,
+  Seo,
+  ShopifyAnalyticsConstants,
+  useLocalization,
+  useServerAnalytics,
+  useShopQuery,
 } from '@shopify/hydrogen';
 import {Suspense} from 'react';
 
 import {Button, PageHeader, Section} from '~/components';
-import {NotFound, Layout} from '~/components/index.server';
+import {Layout, NotFound} from '~/components/index.server';
 
 export default function Policy({params}) {
   const {
@@ -23,6 +23,7 @@ export default function Policy({params}) {
     shippingPolicy: handle === 'shipping-policy',
     termsOfService: handle === 'terms-of-service',
     refundPolicy: handle === 'refund-policy',
+    about: handle === 'about',
   };
 
   // if not a valid policy route, return not found
@@ -30,7 +31,8 @@ export default function Policy({params}) {
     !policy.privacyPolicy &&
     !policy.shippingPolicy &&
     !policy.termsOfService &&
-    !policy.refundPolicy
+    !policy.refundPolicy &&
+    !policy.about
   ) {
     return <NotFound />;
   }

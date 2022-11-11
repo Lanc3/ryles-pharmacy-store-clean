@@ -1,22 +1,26 @@
-import {useEffect, useCallback, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 import {
-  useProductOptions,
-  isBrowser,
-  useUrl,
   AddToCartButton,
+  isBrowser,
   Money,
   ShopPayButton,
+  useProductOptions,
+  useUrl,
 } from '@shopify/hydrogen';
 
-import {Heading, Text, Button, ProductOptions} from '~/components';
+import {Button, Heading, ProductOptions, Text} from '~/components';
 
 export function ProductForm() {
   const {pathname, search} = useUrl();
   const [params, setParams] = useState(new URLSearchParams(search));
 
-  const {options, setSelectedOption, selectedOptions, selectedVariant} =
-    useProductOptions();
+  const {
+    options,
+    setSelectedOption,
+    selectedOptions,
+    selectedVariant,
+  } = useProductOptions();
 
   const isOutOfStock = !selectedVariant?.availableForSale || false;
   const isOnSale =
@@ -83,10 +87,14 @@ export function ProductForm() {
                 key={name}
                 className="flex flex-col flex-wrap mb-4 gap-y-2 last:mb-0"
               >
-                <Heading as="legend" size="lead" className="min-w-[4rem]">
+                <Heading
+                  as="legend"
+                  size="lead"
+                  className="min-w-[4rem] text-white"
+                >
                   {name}
                 </Heading>
-                <div className="flex flex-wrap items-baseline gap-4">
+                <div className="flex flex-wrap items-baseline gap-4 text-white">
                   <ProductOptions
                     name={name}
                     handleChange={handleChange}
@@ -116,7 +124,7 @@ export function ProductForm() {
             ) : (
               <Text
                 as="span"
-                className="flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 bg-rylesgold px-20 text-white rounded-sm py-3 transition-all duration-500 ease-in-out hover:scale-110"
               >
                 <span>Add to bag</span> <span>·</span>{' '}
                 <Money

@@ -1,4 +1,4 @@
-import {Image, Link, flattenConnection} from '@shopify/hydrogen';
+import {flattenConnection, Image, Link} from '@shopify/hydrogen';
 
 import {Heading, Text} from '~/components';
 import {statusMessage} from '~/lib/utils';
@@ -57,7 +57,7 @@ export function OrderCard({order}) {
                 className={`px-3 py-1 text-xs font-medium rounded-full ${
                   order.fulfillmentStatus === 'FULFILLED'
                     ? 'bg-green-100 text-green-800'
-                    : 'bg-primary/5 text-primary/50'
+                    : 'bg-primary/5 text-rylesblue/50'
                 }`}
               >
                 <Text size="fine">

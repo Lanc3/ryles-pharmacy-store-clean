@@ -1,10 +1,10 @@
-import {useCallback, useState, Suspense} from 'react';
-import {useLocalization, fetchSync} from '@shopify/hydrogen';
+import {fetchSync, useLocalization} from '@shopify/hydrogen';
+import {Suspense, useCallback, useState} from 'react';
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
 import {Listbox} from '@headlessui/react';
 
-import {IconCheck, IconCaret} from '~/components';
 import {useMemo} from 'react';
+import {IconCaret, IconCheck} from '~/components';
 
 /**
  * A client component that selects the appropriate country to display for products on a website
@@ -78,7 +78,7 @@ export function CountrySelector() {
                     <Countries
                       selectedCountry={currentCountry}
                       getClassName={(active) => {
-                        return `text-contrast dark:text-primary bg-primary 
+                        return `text-contrast dark:text-rylesblue bg-primary 
                         dark:bg-contrast w-full p-2 transition rounded 
                         flex justify-start items-center text-left cursor-pointer ${
                           active ? 'bg-primary/10' : null
@@ -118,7 +118,7 @@ export function Countries({selectedCountry, getClassName}) {
           {/* @ts-expect-error @headlessui/react incompatibility with node16 resolution */}
           {({active}) => (
             <div
-              className={`text-contrast dark:text-primary ${getClassName(
+              className={`text-contrast dark:text-rylesblue ${getClassName(
                 active,
               )}`}
             >

@@ -1,16 +1,16 @@
-import {Suspense} from 'react';
 import {
   gql,
   Seo,
   ShopifyAnalyticsConstants,
-  useServerAnalytics,
   useLocalization,
+  useServerAnalytics,
   useShopQuery,
 } from '@shopify/hydrogen';
+import {Suspense} from 'react';
 
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {PageHeader, ProductGrid, Section, Text} from '~/components';
-import {NotFound, Layout} from '~/components/index.server';
+import {Layout, NotFound} from '~/components/index.server';
+import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 
 const pageBy = 48;
 
@@ -54,9 +54,14 @@ export default function Collection({params}) {
       </Suspense>
       <PageHeader heading={collection.title}>
         {collection?.description && (
-          <div className="flex items-baseline justify-between w-full">
+          <div className="flex items-baseline justify-between w-full px-10 rounded-xl ">
             <div>
-              <Text format width="narrow" as="p" className="inline-block">
+              <Text
+                format
+                width="narrow"
+                as="p"
+                className="w-full justify-center text-rylesblue font-bold bg-white rounded-xl p-10 "
+              >
                 {collection.description}
               </Text>
             </div>

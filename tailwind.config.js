@@ -11,7 +11,11 @@ function withOpacityValue(variable) {
 }
 
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{html,js,jsx,ts,tsx}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+  ],
   theme: {
     extend: {
       colors: {
@@ -19,6 +23,16 @@ module.exports = {
         contrast: withOpacityValue('--color-contrast'),
         notice: withOpacityValue('--color-accent'),
         shopPay: 'var(--color-shop-pay)',
+        rylesgold: '#84754E',
+        rylesblue: '#30437B',
+      },
+      backgroundImage: {
+        shop: "url('/src/assets/shopfront.jpg')",
+        'blue-wave': "url('/src/assets/bg-wave.jpg')",
+        'inside-store': "url('/src/assets/inside-store.jpg')",
+      },
+      spacing: {
+        '128': '32rem',
       },
       screens: {
         sm: '32em',
@@ -63,11 +77,15 @@ module.exports = {
       },
       boxShadow: {
         border: 'inset 0px 0px 0px 1px rgb(var(--color-primary) / 0.08)',
-        darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
-        lightHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.05)',
+        darkHeader: 'inset 0px -1px 0px 0px rgba(255, 255, 255, 0.6)',
+        lightHeader: 'inset 0px -1px 0px 0px rgba(255, 255, 255, 0.6)',
       },
     },
   },
   // eslint-disable-next-line node/no-unpublished-require
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('tw-elements/dist/plugin'),
+  ],
 };

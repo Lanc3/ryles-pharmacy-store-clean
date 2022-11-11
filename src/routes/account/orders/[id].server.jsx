@@ -6,14 +6,14 @@ import {
   Link,
   Money,
   Seo,
+  useLocalization,
   useRouteParams,
   useSession,
-  useLocalization,
   useShopQuery,
 } from '@shopify/hydrogen';
 import {Suspense} from 'react';
 
-import {Text, PageHeader, Heading} from '~/components';
+import {Heading, PageHeader, Text} from '~/components';
 import {Layout} from '~/components/index.server';
 import {statusMessage} from '~/lib/utils';
 
@@ -289,7 +289,7 @@ export default function OrderDetails({response}) {
                 className={`mt-3 px-3 py-1 text-xs font-medium rounded-full inline-block w-auto ${
                   order.fulfillmentStatus === 'FULFILLED'
                     ? 'bg-green-100 text-green-800'
-                    : 'bg-primary/20 text-primary/50'
+                    : 'bg-primary/20 text-rylesblue/50'
                 }`}
               >
                 <Text size="fine">

@@ -1,19 +1,19 @@
-import {Suspense} from 'react';
-import renderHydrogen from '@shopify/hydrogen/entry-server';
 import {
+  CartProvider,
   FileRoutes,
   PerformanceMetrics,
   PerformanceMetricsDebug,
   Route,
   Router,
+  Seo,
   ShopifyAnalytics,
   ShopifyProvider,
-  CartProvider,
-  useSession,
   useServerAnalytics,
-  Seo,
+  useSession,
 } from '@shopify/hydrogen';
-import {HeaderFallback, EventsListener} from '~/components';
+import renderHydrogen from '@shopify/hydrogen/entry-server';
+import {Suspense} from 'react';
+import {EventsListener, HeaderFallback} from '~/components';
 import {NotFound} from '~/components/index.server';
 
 function App({request}) {
@@ -38,10 +38,9 @@ function App({request}) {
         <Seo
           type="defaultSeo"
           data={{
-            title: 'Hydrogen',
-            description:
-              "A custom storefront powered by Hydrogen, Shopify's React-based framework for building headless.",
-            titleTemplate: `%s · Hydrogen`,
+            title: 'Ryles Pharmacy',
+            description: 'Ryles',
+            titleTemplate: `%s `,
           }}
         />
         <CartProvider

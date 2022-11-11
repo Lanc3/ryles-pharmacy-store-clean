@@ -3,7 +3,7 @@ import {useCallback, useState} from 'react';
 import {Listbox} from '@headlessui/react';
 import {useProductOptions} from '@shopify/hydrogen';
 
-import {Text, IconCheck, IconCaret} from '~/components';
+import {IconCaret, IconCheck, Text} from '~/components';
 
 export function ProductOptions({values, ...props}) {
   const asDropdown = values.length > 7;
@@ -94,7 +94,7 @@ function OptionsDropdown({values, name, handleChange}) {
                       {/* @ts-expect-error @headlessui/react incompatibility with node16 resolution */}
                       {({active}) => (
                         <div
-                          className={`text-primary w-full p-2 transition rounded flex justify-start items-center text-left cursor-pointer ${
+                          className={`text-rylesblue w-full p-2 transition rounded flex justify-start items-center text-left cursor-pointer ${
                             active ? 'bg-primary/10' : null
                           }`}
                         >

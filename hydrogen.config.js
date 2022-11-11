@@ -1,4 +1,4 @@
-import {defineConfig, CookieSessionStorage} from '@shopify/hydrogen/config';
+import {CookieSessionStorage, defineConfig} from '@shopify/hydrogen/config';
 
 export default defineConfig({
   shopify: {
@@ -6,11 +6,11 @@ export default defineConfig({
     defaultLanguageCode: 'EN',
     storeDomain:
       // @ts-ignore
-      Oxygen?.env?.PUBLIC_STORE_DOMAIN || 'hydrogen-preview.myshopify.com',
+      Oxygen?.env?.PUBLIC_STORE_DOMAIN || 'ryles-pharmacy-4b8b.myshopify.com',
     storefrontToken:
       // @ts-ignore
       Oxygen?.env?.PUBLIC_STOREFRONT_API_TOKEN ||
-      '3b580e70970c4528da70c98e097c2fa0',
+      '0227a42326f603da309e0477b07b1ec9',
     privateStorefrontToken:
       // @ts-ignore
       Oxygen?.env?.PRIVATE_STOREFRONT_API_TOKEN,

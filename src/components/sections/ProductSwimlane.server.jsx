@@ -1,7 +1,7 @@
+import {gql, useLocalization, useShopQuery} from '@shopify/hydrogen';
 import {Suspense, useMemo} from 'react';
-import {gql, useShopQuery, useLocalization} from '@shopify/hydrogen';
+import {ProductCard} from '~/components';
 import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {ProductCard, Section} from '~/components';
 
 const mockProducts = new Array(12).fill('');
 
@@ -32,25 +32,28 @@ export function ProductSwimlane({
   }, [count, data]);
 
   return (
-    <Section heading={title} padding="y" {...props}>
-      <div className="swimlane hiddenScroll md:pb-8 md:scroll-px-8 lg:scroll-px-12 md:px-8 lg:px-12">
+    <div>
+      <span className="font-semibold text-lg text-white text-center mb-2 block bg-rylesgold rounded-t-xl mx-40">
+        Our Featured Products
+      </span>
+      <div className="swimlane hiddenScroll md:pb-8 md:scroll-px-8 lg:scroll-px-12 md:px-8 lg:px-32 ">
         {productCardsMarkup}
       </div>
-    </Section>
+    </div>
   );
 }
 
 function ProductCards({products}) {
   return (
-    <>
+    <div className="flex overflow-x-auto space-x-8 w-full overflow-y-hidden mx-10">
       {products.map((product) => (
         <ProductCard
           product={product}
           key={product.id}
-          className={'snap-start w-80'}
+          className={'snap-start w-60 mt-16'}
         />
       ))}
-    </>
+    </div>
   );
 }
 

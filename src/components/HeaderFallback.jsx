@@ -1,7 +1,7 @@
 export function HeaderFallback({isHome}) {
   const styles = isHome
-    ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-    : 'bg-contrast/80 text-primary';
+  ? 'bg-white bg-opacity-10 text-rylesblue dark:text-rylesblue shadow-darkHeader'
+  : 'bg-white bg-opacity-10 text-rylesblue dark:text-rylesblue shadow-darkHeader'
   return (
     <header
       role="banner"

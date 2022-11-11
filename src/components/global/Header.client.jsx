@@ -1,6 +1,5 @@
-import {Link, useUrl, useCart} from '@shopify/hydrogen';
+import {Image, Link, useCart, useUrl} from '@shopify/hydrogen';
 import {useWindowScroll} from 'react-use';
-
 import {
   Heading,
   IconAccount,
@@ -9,11 +8,10 @@ import {
   IconSearch,
   Input,
 } from '~/components';
-
+import logo from '../../assets/Logo.png';
 import {CartDrawer} from './CartDrawer.client';
-import {MenuDrawer} from './MenuDrawer.client';
 import {useDrawer} from './Drawer.client';
-
+import {MenuDrawer} from './MenuDrawer.client';
 /**
  * A client component that specifies the content of the header on the website
  */
@@ -63,19 +61,19 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
   const {y} = useWindowScroll();
 
   const styles = {
-    button: 'relative flex items-center justify-center w-8 h-8',
+    button: 'relative flex items-center justify-center w-8 h-8 bg-white',
     container: `${
       isHome
-        ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-        : 'bg-contrast/80 text-primary'
+        ? 'bg-white bg-opacity-100 text-rylesblue dark:text-rylesblue shadow-darkHeader'
+        : 'bg-white bg-opacity-100 text-rylesblue dark:text-rylesblue shadow-darkHeader'
     } ${
-      y > 50 && !isHome ? 'shadow-lightHeader ' : ''
+      y > 50 && !isHome ? 'shadow-lightHeader bg-white' : ''
     }flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`,
   };
 
   return (
     <header role="banner" className={styles.container}>
-      <div className="flex items-center justify-start w-full gap-4">
+      <div className="flex items-center justify-start w-full gap-4 bg-white'">
         <button onClick={openMenu} className={styles.button}>
           <IconMenu />
         </button>
@@ -89,7 +87,7 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
           <Input
             className={
               isHome
-                ? 'focus:border-contrast/20 dark:focus:border-primary/20'
+                ? 'focus:border-contrast/20 dark:focus:border-primary/20 bg-white'
                 : 'focus:border-primary/20'
             }
             type="search"
@@ -124,14 +122,41 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
 
 function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
   const {y} = useWindowScroll();
-
+  const menuItems = [
+    {
+      name: 'All',
+      route: 'products',
+      id: 1,
+    },
+    {
+      name: 'Vitamins & Supplements',
+      route: '/collections/health',
+      id: 2,
+    },
+    {
+      name: 'Pain Relief',
+      route: '/collections/pain-relief',
+      id: 3,
+    },
+    {
+      name: 'Eye Care',
+      route: '/collections/eye-care',
+      id: 3,
+    },
+    {
+      name: 'Indigestion Remedies',
+      route: '/collections/indigestion-remedies',
+      id: 3,
+    },
+  ];
+  const emptyList = [];
   const styles = {
     button:
       'relative flex items-center justify-center w-8 h-8 focus:ring-primary/5',
     container: `${
       isHome
-        ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-        : 'bg-contrast/80 text-primary'
+        ? 'bg-white bg-opacity-100 text-rylesblue dark:text-rylesblue shadow-darkHeader'
+        : 'bg-white bg-opacity-100 text-rylesblue dark:text-rylesblue shadow-darkHeader'
     } ${
       y > 50 && !isHome ? 'shadow-lightHeader ' : ''
     }hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`,
@@ -141,17 +166,44 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
     <header role="banner" className={styles.container}>
       <div className="flex gap-12">
         <Link className={`font-bold`} to="/">
-          {title}
+          <Image src={logo} width="125" height="125" alt={'logo ryles'}></Image>
         </Link>
-        <nav className="flex gap-8">
-          {/* Top level menu items */}
-          {(menu?.items || []).map((item) => (
-            <Link key={item.id} to={item.to} target={item.target}>
-              {item.title}
-            </Link>
-          ))}
-        </nav>
       </div>
+      <button className="bg-transparent ">
+        <Link className={`font-bold text-rylesblue`} to="/">
+          {' '}
+          Home
+        </Link>
+      </button>
+      <div className="dropdown">
+        <button className="bg-transparent m-5 font-bold text-rylesblue">
+          Shop
+        </button>
+        <div className="dropdown-content text-rylesblue">
+          {menuItems.map((item, index) => {
+            return (
+              <Link
+                key={item.id.toString()}
+                className={`font-bold text-rylesblue`}
+                to={item.route}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      <button className="bg-transparent m-5">
+        <Link className={`font-bold text-rylesblue`} to="/about">
+          About
+        </Link>
+      </button>
+      <button className="bg-transparent m-5">
+        <Link className={`font-bold text-rylesblue`} to="/contact">
+          Contact
+        </Link>
+      </button>
       <div className="flex items-center gap-1">
         <form
           action={`/${countryCode ? countryCode + '/' : ''}search`}
@@ -194,7 +246,7 @@ function CartBadge({dark}) {
     <div
       className={`${
         dark
-          ? 'text-primary bg-contrast dark:text-contrast dark:bg-primary'
+          ? 'text-rylesblue bg-contrast dark:text-contrast dark:bg-primary'
           : 'text-contrast bg-primary'
       } absolute bottom-1 right-1 text-[0.625rem] font-medium subpixel-antialiased h-3 min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-auto px-[0.125rem] pb-px`}
     >

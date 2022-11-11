@@ -2,7 +2,7 @@
 import {Disclosure} from '@headlessui/react';
 import {Link} from '@shopify/hydrogen';
 
-import {Text, IconClose} from '~/components';
+import {IconClose, Text} from '~/components';
 
 export function ProductDetail({title, content, learnMore}) {
   return (
@@ -11,7 +11,7 @@ export function ProductDetail({title, content, learnMore}) {
       {({open}) => (
         <>
           <Disclosure.Button className="text-left">
-            <div className="flex justify-between">
+            <div className="flex justify-between text-white">
               <Text size="lead" as="h4">
                 {title}
               </Text>
@@ -25,13 +25,13 @@ export function ProductDetail({title, content, learnMore}) {
 
           <Disclosure.Panel className={'pb-4 pt-2 grid gap-2'}>
             <div
-              className="prose dark:prose-invert"
+              className="prose dark:prose-invert text-white"
               dangerouslySetInnerHTML={{__html: content}}
             />
             {learnMore && (
               <div className="">
                 <Link
-                  className="pb-px border-b border-primary/30 text-primary/50"
+                  className="pb-px border-b border-primary/30 text-rylesblue/50"
                   to={learnMore}
                 >
                   Learn more

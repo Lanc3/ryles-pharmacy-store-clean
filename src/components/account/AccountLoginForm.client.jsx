@@ -1,7 +1,6 @@
+import {Link, useNavigate} from '@shopify/hydrogen/client';
 import {useState} from 'react';
-import {useNavigate, Link} from '@shopify/hydrogen/client';
 import {getInputStyleClasses} from '../../lib/styleUtils';
-
 export function AccountLoginForm({shopName}) {
   const navigate = useNavigate();
 
@@ -66,7 +65,7 @@ export function AccountLoginForm({shopName}) {
   }
 
   return (
-    <div className="flex justify-center my-24 px-4">
+    <div className="flex justify-center my-24 px-4 relative text-white">
       <div className="max-w-md w-full">
         <h1 className="text-4xl">Sign in.</h1>
         <form noValidate className="pt-6 pb-8 mt-4 mb-4" onSubmit={onSubmit}>
@@ -152,7 +151,7 @@ function EmailField({email, setEmail, emailError, shopName}) {
       </div>
       <div className="flex items-center justify-between">
         <button
-          className="bg-primary rounded text-contrast py-2 px-4 focus:shadow-outline block w-full"
+          className="bg-primary rounded text-contrast py-2 px-4 focus:shadow-outline block w-full text-white"
           type="submit"
         >
           Next
@@ -234,7 +233,7 @@ function PasswordField({password, setPassword, passwordError}) {
       <div className="flex items-center justify-between mt-4">
         <div className="flex-1"></div>
         <Link
-          className="inline-block align-baseline text-sm text-primary/50"
+          className="inline-block align-baseline text-sm text-rylesblue/50"
           to="/account/recover"
         >
           Forgot password

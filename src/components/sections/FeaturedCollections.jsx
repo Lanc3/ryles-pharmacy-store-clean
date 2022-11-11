@@ -1,15 +1,14 @@
-import {Link, Image} from '@shopify/hydrogen';
-
-import {Heading, Section, Grid} from '~/components';
+import {Image, Link} from '@shopify/hydrogen';
+import {Grid, Heading, Section} from '~/components';
 
 export function FeaturedCollections({data, title = 'Collections', ...props}) {
   const items = data.filter((item) => item.image).length;
   const haveCollections = data.length > 0;
-
   if (!haveCollections) return null;
 
   return (
-    <Section {...props} heading={title}>
+    <Section {...props}>
+      <div className="text-white">{title}</div>
       <Grid items={items}>
         {data.map((collection) => {
           if (!collection?.image) {
@@ -18,15 +17,15 @@ export function FeaturedCollections({data, title = 'Collections', ...props}) {
           // TODO: Refactor to use CollectionCard
           return (
             <Link key={collection.id} to={`/collections/${collection.handle}`}>
-              <div className="grid gap-4">
+              <div className="grid gap-4 text-white">
                 <div className="card-image bg-primary/5 aspect-[3/2]">
                   {collection?.image && (
                     <Image
                       alt={`Image of ${collection.title}`}
                       data={collection.image}
-                      height={400}
+                      height={100}
                       sizes="(max-width: 32em) 100vw, 33vw"
-                      width={600}
+                      width={150}
                       widths={[400, 500, 600, 700, 800, 900]}
                       loaderOptions={{
                         scale: 2,
@@ -35,7 +34,9 @@ export function FeaturedCollections({data, title = 'Collections', ...props}) {
                     />
                   )}
                 </div>
-                <Heading size="copy">{collection.title}</Heading>
+                <Heading size="copy">
+                  <div className="text-white">{collection.title}</div>
+                </Heading>
               </div>
             </Link>
           );

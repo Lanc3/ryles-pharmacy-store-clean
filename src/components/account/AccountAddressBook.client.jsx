@@ -1,8 +1,7 @@
-import {useState, useMemo} from 'react';
+import {useMemo, useState} from 'react';
 
-import {Text, Button} from '~/components/elements';
-import {Modal} from '../index';
-import {AccountAddressEdit, AccountDeleteAddress} from '../index';
+import {Button, Text} from '~/components/elements';
+import {AccountAddressEdit, AccountDeleteAddress, Modal} from '../index';
 
 export function AccountAddressBook({addresses, defaultAddress}) {
   const [editingAddress, setEditingAddress] = useState(null);
@@ -104,7 +103,7 @@ function Address({address, defaultAddress, editAddress, setDeletingAddress}) {
     <div className="lg:p-8 p-6 border border-gray-200 rounded flex flex-col">
       {defaultAddress ? (
         <div className="mb-3 flex flex-row">
-          <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary/50">
+          <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-rylesblue/50">
             Default
           </span>
         </div>
@@ -135,7 +134,7 @@ function Address({address, defaultAddress, editAddress, setDeletingAddress}) {
         </button>
         <button
           onClick={setDeletingAddress}
-          className="text-left text-primary/50 ml-6 text-sm"
+          className="text-left text-rylesblue/50 ml-6 text-sm"
         >
           Remove
         </button>

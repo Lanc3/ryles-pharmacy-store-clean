@@ -19,8 +19,8 @@ function Drawer({heading, open, onClose, openFrom = 'right', children}) {
   };
 
   return (
-    <Transition appear show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={onClose}>
+    <Transition appear show={open} as={Fragment} className="relative z-50 ">
+      <Dialog as="div" className="relative z-50 " onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -30,10 +30,10 @@ function Drawer({heading, open, onClose, openFrom = 'right', children}) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-white bg-opacity-25" />
         </Transition.Child>
 
-        <div className="fixed inset-0">
+        <div className="fixed inset-0 ">
           <div className="absolute inset-0 overflow-hidden">
             <div
               className={`fixed inset-y-0 flex max-w-full ${
@@ -57,14 +57,19 @@ function Drawer({heading, open, onClose, openFrom = 'right', children}) {
                   >
                     {heading !== null && (
                       <Dialog.Title>
-                        <Heading as="span" size="lead" id="cart-contents">
+                        <Heading
+                          as="span"
+                          size="lead"
+                          id="cart-contents"
+                          className="text-rylesblue"
+                        >
                           {heading}
                         </Heading>
                       </Dialog.Title>
                     )}
                     <button
                       type="button"
-                      className="p-4 -m-4 transition text-primary hover:text-primary/50"
+                      className="p-4 -m-4 transition text-rylesblue hover:text-rylesblue/50"
                       onClick={onClose}
                     >
                       <IconClose aria-label="Close panel" />
