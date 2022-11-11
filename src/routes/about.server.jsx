@@ -5,6 +5,7 @@ import Mike from '../assets/MikeRyles.png';
 import Team from '../assets/Team.png';
 import Vera from '../assets/Vera2.png';
 import {Layout} from '../components/index.server';
+import Grainne from '/static/assets/Grainne.png';
 function GradientBackground() {
   return (
     <div className="fixed top-0 w-full h-full overflow-hidden bg-blue-wave">
@@ -151,7 +152,7 @@ export default function About() {
                       ></div>
                       <figure className="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
                         <Image
-                          src={'/grainne.png'}
+                          src={Grainne}
                           width="340"
                           height="343"
                           alt="title"
