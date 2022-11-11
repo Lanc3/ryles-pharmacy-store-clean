@@ -2,7 +2,7 @@ import {Image} from '@shopify/hydrogen';
 
 import {Layout} from '../components/index.server';
 import Grainne from '/static/assets/Grainne.png';
-import KatJane from '/static/assets/KatJane.png';
+import KatJane from '/static/assets/Jane_Kat.png';
 import Mike from '/static/assets/MikeRyles.png';
 import Team from '/static/assets/Team.png';
 import Vera from '/static/assets/Vera2.png';
