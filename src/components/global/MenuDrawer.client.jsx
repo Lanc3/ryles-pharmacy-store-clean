@@ -39,6 +39,7 @@ function MenuMobileNav({menu, onClose}) {
       id: 3,
     },
   ];
+
   return (
     <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8 bg-white">
       {/* Top level menu items */}
