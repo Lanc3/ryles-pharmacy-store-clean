@@ -1,9 +1,9 @@
 import {gql, useLocalization, useShopQuery} from '@shopify/hydrogen';
 
 import {Suspense} from 'react';
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {Button, FeaturedCollections, PageHeader, Text} from '~/components';
-import {ProductSwimlane, Layout} from '~/components/index.server';
+import {Layout, ProductSwimlane} from '~/components/index.server';
+import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 
 export function NotFound({response, type = 'page'}) {
   if (response) {
@@ -16,17 +16,19 @@ export function NotFound({response, type = 'page'}) {
 
   return (
     <Layout>
-      <PageHeader heading={heading}>
-        <Text width="narrow" as="p">
-          {description}
-        </Text>
-        <Button width="auto" variant="secondary" to={'/'}>
-          Take me to the home page
-        </Button>
-      </PageHeader>
-      <Suspense>
-        <FeaturedSection />
-      </Suspense>
+      <div className="relative">
+        <PageHeader heading={heading}>
+          <Text width="narrow" as="p">
+            {description}
+          </Text>
+          <Button width="auto" variant="secondary" to={'/'}>
+            Take me to the home page
+          </Button>
+        </PageHeader>
+        <Suspense>
+          <FeaturedSection />
+        </Suspense>
+      </div>
     </Layout>
   );
 }
@@ -64,7 +66,7 @@ function FeaturedSection() {
 const NOT_FOUND_QUERY = gql`
   ${PRODUCT_CARD_FRAGMENT}
   query homepage($country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
+    @inContext(country: $country, language: $language) {
     featuredCollections: collections(first: 3, sortKey: UPDATED_AT) {
       nodes {
         id
