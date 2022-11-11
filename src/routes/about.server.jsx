@@ -97,13 +97,13 @@ export default function About() {
                         aria-hidden="true"
                       ></div>
                       <figure className="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
-                        <Image
+                        <img
                           src={Mike}
                           width="340"
                           height="343"
                           alt="title"
                           className="flex w-full bg-cover"
-                        ></Image>
+                        ></img>
                       </figure>
                     </a>
                     <div>
