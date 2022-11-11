@@ -83,7 +83,7 @@ export default function About() {
               <p className="text-lg text-rylesblue font-bold">
                 Please come say hi and get to know our staff in store anytime
               </p>
-              <Image src={Team} width="600" height="200" alt="team" />
+              <Image src={Team} width="600" height="200" alt="team"></Image>
             </div>
           </div>
           <div className="">
@@ -103,7 +103,7 @@ export default function About() {
                           height="343"
                           alt="title"
                           className="flex w-full bg-cover"
-                        />
+                        ></Image>
                       </figure>
                     </a>
                     <div>
@@ -157,7 +157,7 @@ export default function About() {
                           height="343"
                           alt="title"
                           className="flex w-full bg-cover"
-                        />
+                        ></Image>
                       </figure>
                     </a>
                     <div>
@@ -211,7 +211,7 @@ export default function About() {
                           height="343"
                           alt="title"
                           className="flex w-full bg-cover"
-                        />
+                        ></Image>
                       </figure>
                     </a>
                     <div>
@@ -257,7 +257,7 @@ export default function About() {
                           height="343"
                           alt="title"
                           className="flex w-full bg-cover"
-                        />
+                        ></Image>
                       </figure>
                     </a>
                     <div>
@@ -303,7 +303,7 @@ export default function About() {
                           height="343"
                           alt="title"
                           className="flex w-full bg-cover"
-                        />
+                        ></Image>
                       </figure>
                     </a>
                     <div>
